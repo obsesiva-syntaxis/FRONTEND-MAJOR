@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col s12 m4">
+        <h4 class="center indigo-text">Menú</h4>
+        <a routerLink="/solar">
+            <div class="card">
+                <div class="card-action indigo-text center letra1">
+                    Solar <i class="material-icons tiny">brightness_5</i>
+                </div>
+            </div>
+        </a>
+        <a routerLink="/gen">
+            <div class="card">
+                <div class="card-action indigo-text center letra1">
+                    Generación <i class="material-icons tiny">flash_on</i>
+                </div>
+            </div>
+        </a>
+        <a routerLink="/hidra">
+            <div class="card">
+                <div class="card-action indigo-text center letra1">
+                    Hidráulica <i class="material-icons tiny">invert_colors</i>
+                </div>
+            </div>
+        </a>
+        <h4 class="center indigo-text">Categorias Hidráulica</h4>
+        <a (click)="buscarPerifericos()">
+            <div class="card">
+                <div class="card-action indigo-text center letra1">Periféricos</div>
+            </div>
+        </a>
+        <a (click)="buscarCentrifuga()">
+            <div class="card">
+                <div class="card-action indigo-text center letra1">Centrifuga</div>
+            </div>
+        </a>
+    </div>
+    <div class="col s12 m8">
+        <h4 class="center indigo-text">Equipos Hidráulicos</h4>
+            <app-search (search)="handleSearch($event)"></app-search>
+        <!-- ACA EL FOR DE NG-->
+        <div *ngFor="let hidra of hidras | filterHidra:filterHidra | paginate: { itemsPerPage: 5, currentPage: p } ">
+            <a (click)="selectedCard(hidra._id)">
+                <ul class="collection hoverable">
+                    <li class="collection-item avatar">
+                        <img class="circle" [src]="hidra.imgUrl" style="max-width: 50%; height: auto;">
+                        <span class="title">{{hidra.nombre}}</span>
+                        <p>{{hidra.modelo}} <br>
+                            {{hidra.descripcion}}
+                        </p>
+                    </li>
+                </ul>
+            </a>
+        </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        
+    </div>
+    <!--
+        
+    
+    -->
+</div>

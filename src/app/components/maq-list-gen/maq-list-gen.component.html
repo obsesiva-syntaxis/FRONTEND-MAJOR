@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col s12 m4">
+        <h4 class="center indigo-text">Menú</h4>
+        <a routerLink="/solar">
+            <div class="card">
+                <div class="card-action indigo-text center letra1">
+                    Solar <i class="material-icons tiny">brightness_5</i>
+                </div>
+            </div>
+        </a>
+        <a routerLink="/gen">
+            <div class="card">
+                <div class="card-action indigo-text center letra1">
+                    Generación <i class="material-icons tiny">flash_on</i>
+                </div>
+            </div>
+        </a>
+        <a routerLink="/hidra">
+            <div class="card">
+                <div class="card-action indigo-text center letra1">
+                    Hidráulica <i class="material-icons tiny">invert_colors</i>
+                </div>
+            </div>
+        </a>
+        <h4 class="center indigo-text">Categorias Generación</h4>
+        <a (click)="busquedaDiesel()">
+            <div class="card">
+                <div class="card-action indigo-text center letra1">Diesel</div>
+            </div>
+        </a>
+        <a (click)="busquedaGasolina()">
+            <div class="card">
+                <div class="card-action indigo-text center letra1">Gasolina</div>
+            </div>
+        </a>
+        <a (click)="busquedaGas()">
+            <div class="card">
+                <div class="card-action indigo-text center letra1">
+                    GAS LPG/LGN
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col s12 m8">
+        <h4 class="center indigo-text">Equipos Generadores</h4>
+        <app-search (search)="handleSearch($event)"></app-search>
+        <!-- ACA EL FOR DE NG-->
+        <div *ngFor="let maquina of maquinas | filterGen:filterGen | paginate: { itemsPerPage: 5, currentPage: p }">
+                <a (click)="selectedCard(maquina._id)" >
+                    <ul class="collection hoverable">
+                        <li class="collection-item avatar">
+                            <img class="circle" [src]="maquina.imgUrl" style="max-width: 50%; height: auto;">
+                            <span class="title">{{maquina.nombre}}</span>
+                            <p>Modelo: {{maquina.modelo}} <br>
+                                {{maquina.descripcion}}
+                            </p>
+
+                        </li>
+                    </ul>
+                </a>
+        </div>
+        <div class="col offset-by-10">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+
+
+
+
+
+</div>

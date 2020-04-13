@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="row">
+        <div class="col s6" style="margin-top: 7px;">
+            <div class="pagination" *ngFor="let maquina of maquinas">
+                <div class="card horizontal">
+                    <div class="card-image" (click)="selectedCard(maquina._id)">
+                        <img class="responsive-img" [src]="maquina.imgUrl" style="max-width: 100%; height: auto;">
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            {{maquina.nombre}}
+                            {{maquina.marca}}
+                            {{maquina.modelo}}
+                            {{maquina.tipo}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s6">
+            <div class="card">
+                <div class="card-title center letra1">
+                    <h5 class="indigo-text text-center">Ingresar maquina</h5>
+                </div>
+
+                <form (submit)="uploadMaquina(nombre, modelo, descripcion, marca, tipo, potMax, potCont, 
+                combustible, partida, fases, imgNombre)">
+                    <div class="card-content">
+                        <div class="input-field">
+                            <input type="text" class="form-control" placeholder="Nombre..." required #nombre>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="form-control" placeholder="Modelo..." required #modelo>
+                        </div>
+                        <div class="input-field">
+                            <textarea rows="2" class="materialize-textarea" placeholder="Descripcion..." required
+                                #descripcion></textarea>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="form-control" placeholder="Marca..." required #marca>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="text" class="form-control" placeholder="Tipo..." required #tipo>
+                        </div>
+
+
+                        <h6 class="indigo-text text-center letra1">Carácteristicas</h6>
+                        <div class="input-field">
+                            <input type="text" class="form-control" placeholder="Potencia Máxima..." required #potMax>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="text" class="form-control" placeholder="Potencia Continua..." required
+                                #potCont>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="text" class="form-control" placeholder="Combustible..." required #combustible>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="text" class="form-control" placeholder="Partida..." required #partida>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="text" class="form-control" placeholder="Fases..." required #fases>
+                        </div>
+
+                        <div class="card-image">
+                            <input type="file" style="display: none;" (change)="onMaquinaSelected($event)"
+                                #maquinaInput>
+                            <img [src]="maquinaSelected || 'assets/noimg.png'" class="responsive-image"
+                                (click)="maquinaInput.click()" style="padding-bottom: 10px;">
+                        </div>
+                        <div class="card-footer center">
+                            <button class="waves-effect waves-light btn indigo">Upload!</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>

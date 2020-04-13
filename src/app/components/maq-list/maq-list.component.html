@@ -1,0 +1,19 @@
+<div class="container">
+  <!-- ACA EL FOR DE NG-->
+  <div *ngFor="let maquina of maquinas | paginate: { itemsPerPage: 3, currentPage: p }">
+    <ul class="collection">
+      <li class="collection-item avatar">
+        <img class="circle" [src]="maquina.imgUrl"
+          style="max-width: 50%; height: auto;">
+        <span class="title">{{maquina.nombre}}</span>
+        <p>{{maquina.modelo}} <br>
+           {{maquina.descripcion}}
+        </p>
+        <a (click)="selectedCard(maquina._id)" class="secondary-content indigo-text">
+          <i class="material-icons">send</i></a>
+      </li>
+      </ul>
+      
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
