@@ -34,6 +34,16 @@
     transition: all 2.5s;
 }
 
+#logo2{
+    max-width: 13%; 
+    height: auto;
+}
+#logo2:hover{
+    background-color:#fafafa;
+    padding: 10px;
+    transition: all 2.5s;
+}
+
 .activo{
     background-color: rgb(241, 241, 241);
 }

@@ -6,6 +6,7 @@ import { Hidraulica } from '../../interfaces/Hidraulica';
 import {SolicitudService} from '../../services/solicitud.service';
 import {SolicitudModel} from '../../models/solicitudModel';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import {HidraulicaModel} from '../../models/HidraulicaModel'
 
 @Component({
   selector: 'app-maq-preview-hidra',
@@ -19,6 +20,7 @@ export class MaqPreviewHidraComponent implements OnInit {
   public fecha:Date = new Date();
   public isError=false;
   public cotizacion: SolicitudModel;
+  public hidraClass: HidraulicaModel;
 
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -26,6 +28,7 @@ export class MaqPreviewHidraComponent implements OnInit {
     private solicitudService: SolicitudService,
     private ngxSmartModalService: NgxSmartModalService) { 
       this.cotizacion = new SolicitudModel('','','','');
+      this.hidraClass = new HidraulicaModel('','','','','','','','','','','');
     }
 
 
@@ -38,6 +41,18 @@ export class MaqPreviewHidraComponent implements OnInit {
         .subscribe(
           res => {
             this.hidra = res;
+            this.hidraClass.nombre = res.nombre;
+            this.hidraClass.modelo = res.modelo;
+            this.hidraClass.marca = res.marca;
+            this.hidraClass.descripcion = res.descripcion;
+            this.hidraClass.imgUrl = res.imgUrl;
+            this.hidraClass.cauMax = res.caracteristica.cauMax;
+            this.hidraClass.altMax = res.caracteristica.altMax;
+            this.hidraClass.potMax = res.caracteristica.potMax;
+            this.hidraClass.sucDes = res.caracteristica.sucDes;
+            this.hidraClass.sucMax = res.caracteristica.sucMax;
+            this.hidraClass.volt = res.caracteristica.volt;
+
           },
           err => console.log(err)
         )

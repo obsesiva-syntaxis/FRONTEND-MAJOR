@@ -28,6 +28,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { FilterSolarPipe } from './pipes/filter-solar.pipe';
 import { FilterGenPipe } from './pipes/filter-gen.pipe';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { NgxParallaxScrollModule } from 'ngx-parallax-scroll';
 
 //?NGX-Materialize
 import { MzSidenavModule } from 'ngx-materialize';
@@ -72,7 +73,8 @@ import { MzSelectModule } from 'ngx-materialize';
     MzDropdownModule,
     MzInputModule,
     MzSelectModule,
-    NgxSmartModalModule.forRoot()
+    NgxSmartModalModule.forRoot(),
+    NgxParallaxScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

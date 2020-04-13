@@ -3,11 +3,11 @@
         <div class="card-panel">
             <div class="center">
 
-                <img [src]="hidra.imgUrl" class="responsive-image" style="max-width: 50%; height: auto;">
+                <img [src]="hidraClass.imgUrl" class="responsive-image" style="max-width: 50%; height: auto;">
 
             </div>
             <br>
-                <h5 class="center">{{hidra.nombre}}</h5>
+                <h5 class="center">{{hidraClass.nombre}}</h5>
             <br>
         </div>
     </div>
@@ -20,13 +20,13 @@
                     <h5 class="indigo-text letra1 center">Descripción</h5>
                 </li>
                 <li class="collection-header center">
-                    {{hidra.descripcion}}
+                    {{hidraClass.descripcion}}
                 </li>
                 <li class="collection-item">
-                    Modelo: <span class="badge">{{hidra.modelo}}</span>
+                    Modelo: <span class="badge">{{hidraClass.modelo}}</span>
                 </li>
                 <li class="collection-item">
-                    Marca: <span class="badge">{{hidra.marca}}</span>
+                    Marca: <span class="badge">{{hidraClass.marca}}</span>
                 </li>
                 
             </ul>
@@ -36,22 +36,22 @@
                     <h5 class="indigo-text letra1 center">Carácterísticas</h5>
                 </li>
                 <li class="collection-item">
-                    Potencía máxima: <span class="badge">{{hidra.caracteristica.potMax}}</span>
+                    Potencía máxima: <span class="badge">{{hidraClass.potMax}}</span>
                 </li>
                 <li class="collection-item">
-                    Succión y Descarga: <span class="badge">{{hidra.caracteristica.sucDes}}</span>
+                    Succión y Descarga: <span class="badge">{{hidraClass.sucDes}}</span>
                 </li>
                 <li class="collection-item">
-                    Altura Máxima: <span class="badge">{{hidra.caracteristica.altMax}}</span>
+                    Altura Máxima: <span class="badge">{{hidraClass.altMax}}</span>
                 </li>
                 <li class="collection-item">
-                    Caudal Máximo: <span class="badge">{{hidra.caracteristica.cauMax}}</span>
+                    Caudal Máximo: <span class="badge">{{hidraClass.cauMax}}</span>
                 </li>
                 <li class="collection-item">
-                    Voltaje: <span class="badge">{{hidra.caracteristica.volt}}</span>
+                    Voltaje: <span class="badge">{{hidraClass.volt}}</span>
                 </li>
                 <li class="collection-item">
-                    Succión Máxima: <span class="badge">{{hidra.caracteristica.sucMax}}</span>
+                    Succión Máxima: <span class="badge">{{hidraClass.sucMax}}</span>
                 </li>
             </ul>
         </div>

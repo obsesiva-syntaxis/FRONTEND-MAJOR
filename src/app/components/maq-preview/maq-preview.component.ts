@@ -6,6 +6,7 @@ import { Maquina } from '../../interfaces/Maquina';
 import {SolicitudService} from '../../services/solicitud.service'
 import { SolicitudModel } from '../../models/solicitudModel';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import {MaquinaModel} from '../../models/MaquinaModel'
 
 @Component({
   selector: 'app-maq-preview',
@@ -19,6 +20,7 @@ export class MaqPreviewComponent implements OnInit {
   public fecha:Date = new Date();
   public isError=false;
   public cotizacion: SolicitudModel;
+  public maquinaClass: MaquinaModel;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -26,7 +28,10 @@ export class MaqPreviewComponent implements OnInit {
     private maquinaService: MaquinaService,
     private solicitudService: SolicitudService,
     private ngxSmartModalService: NgxSmartModalService
-    ) { this.cotizacion = new SolicitudModel('','','','') }
+    ) { 
+      this.cotizacion = new SolicitudModel('','','','');
+      this.maquinaClass = new MaquinaModel('','','','','','','','','','');
+    }
 
   
   
@@ -38,6 +43,16 @@ export class MaqPreviewComponent implements OnInit {
         .subscribe(
           res => {
             this.maquina = res;
+            this.maquinaClass.nombre = res.nombre;
+            this.maquinaClass.marca = res.marca;
+            this.maquinaClass.modelo = res.modelo;
+            this.maquinaClass.imgUrl = res.imgUrl;
+            this.maquinaClass.descripcion = res.descripcion;
+            this.maquinaClass.partida = res.caracteristica.partida;
+            this.maquinaClass.potCont = res.caracteristica.potCont;
+            this.maquinaClass.potMax = res.caracteristica.potMax;
+            this.maquinaClass.combustible = res.caracteristica.combustible;
+            this.maquinaClass.fases = res.caracteristica.fases;
           },
           err => console.log(err)
         )

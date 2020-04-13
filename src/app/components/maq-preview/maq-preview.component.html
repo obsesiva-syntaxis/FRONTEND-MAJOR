@@ -3,11 +3,11 @@
         <div class="card-panel">
             <div class="center">
 
-                <img [src]="maquina.imgUrl" class="responsive-image" style="max-width: 50%; height: auto;">
+                <img [src]="maquinaClass.imgUrl" class="responsive-image" style="max-width: 50%; height: auto;">
 
             </div>
             <div class="center">
-                <h5 class="left">{{maquina.nombre}}</h5>
+                <h5 class="left">{{maquinaClass.nombre}}</h5>
             </div>
             <br><br><br>
         </div>
@@ -21,13 +21,13 @@
                     <h5 class="indigo-text letra1 center">Descripción</h5>
                 </li>
                 <li class="collection-header center">
-                    {{maquina.descripcion}}
+                    {{maquinaClass.descripcion}}
                 </li>
                 <li class="collection-item">
-                    Modelo: <span class="badge">{{maquina.modelo}}</span>
+                    Modelo: <span class="badge">{{maquinaClass.modelo}}</span>
                 </li>
                 <li class="collection-item">
-                    Marca: <span class="badge">{{maquina.marca}}</span>
+                    Marca: <span class="badge">{{maquinaClass.marca}}</span>
                 </li>
                 
             </ul>
@@ -37,19 +37,19 @@
                     <h5 class="indigo-text letra1 center">Carácterísticas</h5>
                 </li>
                 <li class="collection-item">
-                    Potencía máxima: <span class="badge">{{maquina.caracteristica.potMax}}</span>
+                    Potencía máxima: <span class="badge">{{maquinaClass.potMax}}</span>
                 </li>
                 <li class="collection-item">
-                    Potencía Continua: <span class="badge">{{maquina.caracteristica.potCont}}</span>
+                    Potencía Continua: <span class="badge">{{maquinaClass.potCont}}</span>
                 </li>
                 <li class="collection-item">
-                    Potencía combustible: <span class="badge">{{maquina.caracteristica.combustible}}</span>
+                    Potencía combustible: <span class="badge">{{maquinaClass.combustible}}</span>
                 </li>
                 <li class="collection-item">
-                    Potencía partida: <span class="badge">{{maquina.caracteristica.partida}}</span>
+                    Potencía partida: <span class="badge">{{maquinaClass.partida}}</span>
                 </li>
                 <li class="collection-item">
-                    Potencía fases: <span class="badge">{{maquina.caracteristica.fases}}</span>
+                    Potencía fases: <span class="badge">{{maquinaClass.fases}}</span>
                 </li>
             </ul>
         </div>

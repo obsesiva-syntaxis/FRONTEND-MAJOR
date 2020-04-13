@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-declare var $:any;
+import { IParallaxScrollConfig } from 'ngx-parallax-scroll';
+declare var $: any;
 
 
 @Component({
@@ -7,14 +8,21 @@ declare var $:any;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
+  ngParallaxConf: IParallaxScrollConfig = {
+    parallaxSpeed: 1,
+    parallaxSmoothness: 1,
+    parallaxDirection: 'straight',
+    parallaxTimingFunction: 'linear',
+    parallaxThrottleTime: 80
+  };
 
   constructor() { }
 
-  ngOnInit(){
+  ngOnInit() {
     $('.parallax-window').parallax();
   }
-  
+
 }
 

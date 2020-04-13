@@ -5,6 +5,7 @@ import {SolarService} from '../../services/solar.service';
 import {SolicitudService} from '../../services/solicitud.service';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import {SolicitudModel} from '../../models/solicitudModel';
+import {SolarModel} from '../../models/SolarModel'
 
 
 declare var $:any;
@@ -21,6 +22,7 @@ export class MaqPreviewSolarComponent implements OnInit {
   public fecha:Date = new Date();
   public isError=false;
   public cotizacion: SolicitudModel;
+  public solarClass: SolarModel;
 
 
   constructor(
@@ -30,6 +32,7 @@ export class MaqPreviewSolarComponent implements OnInit {
     private ngxSmartModalService: NgxSmartModalService
     ){
         this.cotizacion = new SolicitudModel('','','','');
+        this.solarClass = new SolarModel('','','','','');
   }
 
   ngOnInit() {
@@ -39,6 +42,11 @@ export class MaqPreviewSolarComponent implements OnInit {
         .subscribe(
           res => {
             this.solar = res;
+            this.solarClass.nombre = res.nombre;
+            this.solarClass.modelo = res.modelo;
+            this.solarClass.marca = res.marca;
+            this.solarClass.imgUrl = res.imgUrl;
+            this.solarClass.descripcion = res.descripcion;
           },
           err => console.log(err)
         )
